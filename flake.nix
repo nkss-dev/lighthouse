@@ -19,7 +19,10 @@
           pkgs.google-drive-ocamlfuse
 
           (flakey-devShell-pkgs.default.override { environments = [ "nix" "python" ]; })
-          (flakey-devShell-pkgs.vscodium.override { environments = [ "nix" "python" ]; })
+          (flakey-devShell-pkgs.vscodium.override {
+            environments = [ "nix" "python" ];
+            extensions = with pkgs.vscode-extensions; [ tomoki1207.pdf ];
+          })
         ];
       };
     };
