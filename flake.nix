@@ -15,6 +15,7 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
+          pkgs.crudini
           pkgs.google-drive-ocamlfuse
 
           (flakey-devShell-pkgs.default.override { environments = [ "nix" "python" ]; })
