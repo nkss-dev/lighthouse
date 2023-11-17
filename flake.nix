@@ -17,6 +17,7 @@
         buildInputs = [
           pkgs.crudini
           pkgs.google-drive-ocamlfuse
+          pkgs.python311Packages.aiohttp
 
           (flakey-devShell-pkgs.default.override { environments = [ "nix" "python" ]; })
           (flakey-devShell-pkgs.vscodium.override {
