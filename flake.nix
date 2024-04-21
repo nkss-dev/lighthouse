@@ -13,11 +13,15 @@
       flakey-devShell-pkgs = flakey-devShells.outputs.packages.${system};
     in
     {
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${system}.default = with pkgs; mkShell {
         buildInputs = [
-          pkgs.crudini
-          pkgs.google-drive-ocamlfuse
-          pkgs.python311Packages.aiohttp
+          crudini
+          google-drive-ocamlfuse
+          python311Packages.aiohttp
+          python311Packages.google-auth-httplib2
+          python311Packages.google-auth-oauthlib
+          python311Packages.python-dotenv
+          python311Packages.requests
 
           (flakey-devShell-pkgs.default.override { environments = [ "nix" "python" ]; })
           (flakey-devShell-pkgs.vscodium.override {
